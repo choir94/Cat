@@ -99,10 +99,14 @@ sudo yarn cli wallet balances
 
 ![image](https://github.com/user-attachments/assets/4abfd1d1-b1fb-461c-89a4-7788db9c88c1)
 
+- Gunakan perintah ini untuk menginstal curl dan jq`
 ```bash
-sudo yarn cli mint -i 45ee725c2c5993b3e4d308842d87e973bf1951f5f7a804b21e4dd964ecd12d6b_0 5 --fee-rate 120
+dpkg -l | grep -q '^ii  curl ' || sudo apt-get install -y curl && dpkg -l | grep -q '^ii  jq ' || sudo apt-get install -y jq
 ```
-**Anda harus mengubah tarif biaya sesuai dengan biaya pasar saat ini, Anda dapat memeriksa biaya saat ini [here](https://explorer.unisat.io/fractal-mainnet)**
+- Mint pakai fee market saat ini
+```bash
+sudo yarn cli mint -i 45ee725c2c5993b3e4d308842d87e973bf1951f5f7a804b21e4dd964ecd12d6b_0 5 --fee-rate $(curl -s https://explorer.unisat.io/fractal-mainnet/api/bitcoin-info/fee | jq '.data.economyFee')
+```
 - Cek saldo
 ```bash
 sudo yarn cli wallet balances
