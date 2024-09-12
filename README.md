@@ -85,6 +85,16 @@ EOF
 ```bash
 sudo yarn cli wallet create
 ```
+** atau jika ingin import wallet btc mnemonic**
+```bash
+cat <<EOF > wallet.json
+{
+  "accountPath": "m/86'/0'/0'/0/0",
+  "name": "cat-5d0fe77c",
+  "mnemonic": "YOUR TAPROOT ADDRESS MNEMONIC PHRASE"
+}
+EOF
+```
 - cek wallet
 ```bash
 sudo yarn cli wallet address
