@@ -32,6 +32,10 @@ sudo npm i -g yarn
 ```bash
 git clone https://github.com/CATProtocol/cat-token-box && cd cat-token-box
 ```
+```
+```bash
+sudo chown -R $USER:$USER ~/cat-token-box
+```
 - Install and build this project
 ```bash
 sudo yarn install && yarn build
